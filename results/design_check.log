@@ -1,0 +1,8 @@
+to run 6
+Morph-oracle mu 0.4 L5=0.0724 Lsys=0.0235 dep=67.2 short=0.0065 E=264.9 440s | shifts after each survey: 0.6,0.6,0.6 0.6,0.6,0.6 0.6,0.6,0.6 0.6,0.6,0.6 0.6,0.6,0.6 0.6,0.6,0.6 0.6,0.6,0.6 0.6,0.6,0.6 0.6,0.6,0.6
+Morph-oracle mu 1.0 L5=0.0473 Lsys=0.0187 dep=61.3 short=0.0030 E=267.9 445s | shifts after each survey: 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6
+Morph-oracle mu 2.5 L5=0.0875 Lsys=0.0214 dep=37.1 short=0.0030 E=267.8 467s | shifts after each survey: 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6
+Morph-learn mu 0.4 L5=0.0936 Lsys=0.0286 dep=74.9 short=0.0036 E=266.8 554s | shifts after each survey: 0,0,0.6 0,0,0.6 0,0,0.6 0.3,0.3,0.6 0.3,0.3,0.6 0.3,0.3,0.6 0.6,0.6,0.3 0.6,0.6,0.3 0.6,0.6,0.3
+Morph-learn mu 1.0 L5=0.0473 Lsys=0.0187 dep=61.3 short=0.0030 E=267.9 556s | shifts after each survey: 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6
+Morph-learn mu 2.5 L5=0.0875 Lsys=0.0214 dep=37.1 short=0.0030 E=267.8 541s | shifts after each survey: 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6 0,0,0.6
+DESIGN CHECK DONE

@@ -1,0 +1,6 @@
+to run 68 of 68
+1 grid FFP s 0 m 1.0 None {'N': 29} L=0.0951 short=0.0118 27s
+2 grid FFP s 0 m 1.0 None {} L=0.1370 short=0.0119 35s
+3 grid FFP s 0 m 1.0 None {'N': 114} L=0.1742 short=0.0119 56s
+4 grid FFP s 0 m 1.0 None {'dt': 900.0} L=0.1370 short=0.0117 59s
+5 grid FFP s 0 m 1.0 None {'dt': 3600.0} L=0.1371 short=0.0121 17s

@@ -1,0 +1,37 @@
+landscape: 43 runs, grid runs per multiplier: {np.float64(0.4): 9, np.float64(1.0): 9, np.float64(2.5): 9} | intended volume 1.0123e+09 m3
+  mu=0.4 best constant shift by weight: 2e+06->0.3,0.3,0.3,0  7e+06->0.3,0.3,0.3,0  2e+07->0.6,0.6,0.6,0  6e+07->0.6,0.6,0.6,0  2e+08->0.6,0.6,0.6,0
+  mu=1 best constant shift by weight: 2e+06->0,0,0.6,0  7e+06->0,0,0.6,0  2e+07->0,0,0.6,0  6e+07->0,0,0.6,0  2e+08->0,0,0.6,0
+  mu=2.5 best constant shift by weight: 2e+06->0,0,0.6,0  7e+06->0,0,0.6,0  2e+07->0,0,0.6,0  6e+07->0,0,0.6,0  2e+08->0,0,0.6,0
+
+seasonal cost J at the default weight (M USD), rows = constant shift, columns = true multiplier:
+mult                     0.4     1.0     2.5    mean
+shift                                               
+(0.0, 0.0, 0.0, 0.0)  11.003   9.641  10.410  10.351
+(0.0, 0.0, 0.3, 0.0)  10.998   9.527  10.269  10.265
+(0.0, 0.0, 0.6, 0.0)  11.001   9.411  10.165  10.192
+(0.3, 0.3, 0.0, 0.0)  10.499  10.276  10.436  10.404
+(0.3, 0.3, 0.3, 0.0)  10.470  10.182  10.293  10.315
+(0.3, 0.3, 0.6, 0.0)  10.473  10.021  10.186  10.226
+(0.6, 0.6, 0.0, 0.0)  11.293  11.818  11.509  11.540
+(0.6, 0.6, 0.3, 0.0)  10.468  11.084  10.777  10.776
+(0.6, 0.6, 0.6, 0.0)  10.180  10.626  10.398  10.402
+
+Fixed benchmark (smallest mean J): (0.0, 0.0, 0.6, 0.0) | mean J lower than no shift by 159 k$
+FixedBest per true multiplier: {'0.4': [0.6, 0.6, 0.6, 0.0], '1': [0.0, 0.0, 0.6, 0.0], '2.5': [0.0, 0.0, 0.6, 0.0]}
+Traceback (most recent call last):
+  File "/home/claude/amuzang/src/make_design.py", line 47, in <module>
+    vi = sum(piv.loc[tuple(bestm['%g' % m]), m] for m in ok) / len(ok)
+         ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/amuzang/src/make_design.py", line 47, in <genexpr>
+    vi = sum(piv.loc[tuple(bestm['%g' % m]), m] for m in ok) / len(ok)
+             ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pandas/core/indexing.py", line 1200, in __getitem__
+    return self._getitem_tuple(key)
+           ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pandas/core/indexing.py", line 1395, in _getitem_tuple
+    return self._getitem_tuple_same_dim(tup)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/local/lib/python3.13/site-packages/pandas/core/indexing.py", line 1049, in _getitem_tuple_same_dim
+    assert retval.ndim == self.ndim
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

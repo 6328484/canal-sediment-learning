@@ -4,6 +4,23 @@ Authors: Z. A. Abdujabborov, A. J. Seytov, N. Q. Choriyorov, M. N. Esonturdiyev.
 Corresponding author: Z. A. Abdujabborov (abdujabborov_za@nuu.uz).
 
 This repository contains the simulation code, the raw result files, and the scripts that produce every number, table and figure of the paper.
+
+> **Status:** companion repository of a manuscript in preparation for the *Journal of Hydraulic Research*. A DOI (Zenodo) will be added at publication.
+
+## What this is
+
+A fully synthetic simulation study of an Amu-Zang-type pumped main canal (56.6 km, four pools, three check structures, five offtakes). It couples one-dimensional unsteady flow (Saint-Venant equations, Preissmann scheme) with suspended-load transport, bed evolution (Exner equation) and pump energy. It tests whether an unknown sediment transport capacity multiplier can be learned online from monthly bed surveys (an ensemble of digital twins with Bayesian weights) and used to choose seasonal pool water-level shifts that limit siltation without harming deliveries or energy use. No field data are used; `docs/parameters.md` records the provenance of every parameter.
+
+## Quick start
+
+```
+git clone https://github.com/6328484/canal-sediment-learning.git
+cd canal-sediment-learning
+pip install -r requirements.txt
+python3 examples/quickstart.py      # 10-day smoke test, a few seconds
+```
+
+Expected output ends with `OK` and prints delivery shortage and spill fractions, pumping energy and the capacity-loss indicators.
 All inputs are synthetic or taken from the sources cited in the paper (see `docs/parameters.md` for the provenance of every parameter).
 
 ## Requirements
@@ -23,7 +40,7 @@ Computation: two CPU cores; the complete study takes about one day on two cores 
 | `src/controllers.py`, `src/model_id.py` | local controller, identification of pool storage areas |
 | `src/mpc.py` | economic predictive controller (adjoint gradient, offset-free observer) |
 | `src/morph.py` | ensemble of digital twins, Bayesian weights with forgetting and prior, seasonal planner (`MorphMPC`), the rejected weekly planner (`MorphWeekly`), fixed-shift controller |
-| `src/forecast.py` | bank of precomputed flows (predictive controller, expected demand, clean bed) for the nine candidate shifts and sediment-only rollouts of a twin; banks are cached in `results/bank/` and rebuilt with `python3 forecast.py 114 57 228` (about 20 minutes per grid on two cores) |
+| `src/forecast.py` | bank of precomputed flows (predictive controller, expected demand, clean bed) for the nine candidate shifts and sediment-only rollouts of a twin; banks are cached in `results/bank/` (340 MB, not stored in this repository) and rebuilt with `python3 forecast.py 114 57 228` (about 20 minutes per grid on two cores) |
 | `src/run_all.py` | experiment runner (stages `base`, `main`, `struct`, `sens`, `gridcl`) |
 | `src/landscape.py`, `src/design_check.py`, `src/check_bank.py`, `src/make_design.py`, `src/launch_main.py` | design of the planner on the design seed (landscape, forecast check, closed-loop check) and launch of the experiments |
 | `src/analyze_main.py`, `src/analyze_landscape.py`, `src/make_tables.py` | statistics and tables |
@@ -50,13 +67,25 @@ cd ../figs && for f in fig_*.py; do python3 $f; done
 
 All runs are resumable: results are appended to the json files keyed by configuration. A single seasonal run takes 0.5 to 12 minutes.
 
+## Result files
+
+| File | Content |
+|---|---|
+| `results/main.json`, `results/table_main.csv` | main experiment (E1): 5 seeds x 3 true multipliers x all controllers; `paired_main.csv` holds the paired differences with 95% intervals |
+| `results/struct*.csv`, `results/sens.csv`, `results/gridcl.csv` | structural-error (E2), sensitivity (E3) and grid (E4) experiments |
+| `results/ident.csv`, `results/plan_stats.csv` | identification of the multiplier and planner decisions |
+| `results/landscape*.{json,csv}`, `results/design*.json` | open-loop landscape of constant shifts and design of the planner on seed 0 |
+| `results/analysis_full.txt` | full text output of the statistical analysis |
+| `*.log` | run logs |
+
 ## Notes
 
 * The plant is synthetic. Everything marked A in `docs/parameters.md` is an assumption, not a measurement.
 * `results/design_check_weekly_v2.json` and `results/design_check_v1_twin_without_shift.json` are the records of two rejected earlier versions (weekly planner; twins that ignored the shifts) and are not used in the paper's tables.
+* `figs/fig_planner.py` and `figs/fig_landscape.py` are exploratory figures that do not appear in the paper (the latter is out of date with the final results files).
 * Random seeds: seed 0 is the design seed, seeds 1 to 5 are the evaluation seeds.
 * The result files contain the shifts chosen by the planner after each survey (`plan_hist`), the survey measurements and the twin predictions (`meas_hist`, `pred_hist`), and the end-of-season bed profile (`dz_prof`) of every run.
 
 ## License
 
-Code: MIT. Results and documentation: CC BY 4.0. (The authors may change this before the deposit.)
+Code: MIT. Results and documentation: CC BY 4.0. 

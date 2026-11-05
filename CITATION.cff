@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the paper and this repository."
+title: "Code and results for: Learning sediment transport capacity online to limit siltation in pumped canals"
+type: software
+authors:
+  - family-names: Abdujabborov
+    given-names: Zafar A.
+    affiliation: "National University of Uzbekistan named after Mirzo Ulugbek, Tashkent, Uzbekistan"
+    email: abdujabborov_za@nuu.uz
+    orcid: "https://orcid.org/0009-0000-3938-7562"
+  - family-names: Seytov
+    given-names: Aybek J.
+    affiliation: "University of World Economy and Diplomacy, Tashkent, Uzbekistan"
+    orcid: "https://orcid.org/0009-0002-8904-5178"
+  - family-names: Choriyorov
+    given-names: Nurbek Q.
+    affiliation: "Research Institute of Irrigation and Water Problems, Tashkent, Uzbekistan"
+    orcid: "https://orcid.org/0000-0001-7289-0303"
+  - family-names: Esonturdiyev
+    given-names: Mamamatqobil N.
+    affiliation: "University of World Economy and Diplomacy, Tashkent, Uzbekistan"
+    orcid: "https://orcid.org/0000-0003-4083-7019"
+repository-code: "https://github.com/6328484/canal-sediment-learning"
+license: MIT
+date-released: "2026-11-05"
+keywords:
+  - irrigation canals
+  - sediment transport
+  - model predictive control
+  - digital twin
+  - Saint-Venant equations

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+# precomputed forecast banks (340 MB; rebuilt with `python3 src/forecast.py 114 57 228`)
+results/bank/

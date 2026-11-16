@@ -9,7 +9,7 @@ This repository contains the simulation code, the raw result files, and the scri
 
 ## What this is
 
-A fully synthetic simulation study of an Amu-Zang-type pumped main canal (56.6 km, four pools, three check structures, five offtakes). It couples one-dimensional unsteady flow (Saint-Venant equations, Preissmann scheme) with suspended-load transport, bed evolution (Exner equation) and pump energy. It tests whether an unknown sediment transport capacity multiplier can be learned online from monthly bed surveys (an ensemble of digital twins with Bayesian weights) and used to choose seasonal pool water-level shifts that limit siltation without harming deliveries or energy use. No field data are used; `docs/parameters.md` records the provenance of every parameter.
+A numerical modeling study of a pumped main canal parameterized after the Amu-Zang system (56.6 km, four pools, three check structures, five offtakes). It couples one-dimensional unsteady flow (Saint-Venant equations, Preissmann scheme) with suspended-load transport, bed evolution (Exner equation) and pump energy. It tests whether an unknown sediment transport capacity multiplier can be learned online from monthly bed surveys (an ensemble of digital twins with Bayesian weights) and used to choose seasonal pool water-level shifts that limit siltation without harming deliveries or energy use. `docs/parameters.md` records the provenance of every parameter.
 
 ## Quick start
 
@@ -80,7 +80,7 @@ All runs are resumable: results are appended to the json files keyed by configur
 
 ## Notes
 
-* The plant is synthetic. Everything marked A in `docs/parameters.md` is an assumption, not a measurement.
+* Items labeled A in docs/parameters.md are prescribed modeling values rather than empirical measurements.
 * `results/design_check_weekly_v2.json` and `results/design_check_v1_twin_without_shift.json` are the records of two rejected earlier versions (weekly planner; twins that ignored the shifts) and are not used in the paper's tables.
 * `figs/fig_planner.py` and `figs/fig_landscape.py` are exploratory figures that do not appear in the paper (the latter is out of date with the final results files).
 * Random seeds: seed 0 is the design seed, seeds 1 to 5 are the evaluation seeds.

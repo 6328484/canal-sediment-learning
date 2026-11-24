@@ -1,6 +1,7 @@
 # Code and results for "Learning sediment transport capacity online to limit siltation in pumped canals"
 
-Authors: Z. A. Abdujabborov, A. J. Seytov, N. Q. Choriyorov, M. N. Esonturdiyev.
+Paper authors: Z. A. Abdujabborov, A. J. Seytov, N. Q. Choriyorov, M. N. Esonturdiyev.
+Software authors (copyright holders of the code): Z. A. Abdujabborov, A. J. Seytov, N. Q. Choriyorov, M. N. Esonturdiyev, O. N. Abduraxmanov.
 Corresponding author: Z. A. Abdujabborov (abdujabborov_za@nuu.uz).
 
 This repository contains the simulation code, the raw result files, and the scripts that produce every number, table and figure of the paper.
